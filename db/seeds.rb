@@ -25,6 +25,7 @@ Choice.create(choice: "Chipotle", question_id: question.id)
 Choice.create(choice: "Portillo's", question_id: question.id)
 Choice.create(choice: "7-11", question_id: question.id)
 
+
 User.all.each do |user|
   surveys = Survey.all
   surveys_count = Survey.all.count
@@ -35,4 +36,19 @@ User.all.each do |user|
     Response.create(choice_id: answer.id, submission_id: submission.id)
   end
 end
+
+User.create(name: 'Scott', email)
+
+Scottsurvey = Survey.new(title: "Word that looks the worst in the console", description: "What is the strangest console word?", user_id: 11)
+survey.user_id = User.last.id
+survey.save
+
+question = Question.create(question: "strangest word in console?")
+survey.questions << question
+
+Choice.create(choice: "survey", question_id: question.id)
+Choice.create(choice: "proficiency", question_id: question.id)
+Choice.create(choice: "title", question_id: question.id)
+Choice.create(choice: "deprecated", question_id: question.id)
+
 
