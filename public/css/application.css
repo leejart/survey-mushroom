@@ -7,3 +7,9 @@
 th {
   text-align: left;
 }
+
+
+.header {
+  height: 50px;
+  background-color: purple;
+}
