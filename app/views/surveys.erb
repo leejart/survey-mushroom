@@ -1,9 +1,9 @@
 <h1>All Surveys</h1>
-<a href="/profile/name">profile</a>
-<ul>
-<li><a href="/survey/1">survey title</a></li>
-<li><a href="/survey/1">survey title</a></li>
-<li><a href="/survey/1">survey title</a></li>
+<a href="/profile/<%= @user.id %>">profile</a>
+<ul><% @surveys.each do |survey| %>
+<li><a href="/survey/<%= survey.id %>"><%=survey.title %></a></li>
+<% end %>
+
 </ul>
 
 <a href="/">home</a>

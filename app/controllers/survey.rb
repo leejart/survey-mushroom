@@ -1,5 +1,6 @@
 get '/surveys' do 
-
+  @surveys = Survey.all
+  @user = User.find(session[:user_id])
   erb :surveys
 end
 
