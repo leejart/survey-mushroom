@@ -1,9 +1,17 @@
 <h1>welcome to Survey Mushroom!</h1>
 
+<h4>Login</h4>
+
+<div class="error">
+  <% if params[:error] == "loginerror" %>
+    <p>Wrong username or password</p>
+  <% end %>
+</div>
+
 <form action="/login" method="POST">
-    Email: <input type="email" name="username" id="input">
-    Password: <input type="password" name="password" id="input">
-    <input type="submit" name="submit" id="submit">
+    <input type="email" name="user[email]" placeholder="email"><br>
+    <input type="password" name="user[password]" placeholder="password"><br>
+    <input type="submit" name="Log in" ><br>
 </form>
 
 <a href="/signup">Signup!</a>
