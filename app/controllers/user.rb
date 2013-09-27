@@ -31,6 +31,9 @@ post '/login' do
 end
 
 post '/signup' do
+    @user = User.new(params[:user])
+    @user.password = params[:user][:password]
+    @user.save!
 
-  redirect to '/surveys'
+  redirect to "/profile/#{@user.id}"
 end

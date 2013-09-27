@@ -1,8 +1,9 @@
 <form action="/signup" method="POST">
-    Name: <input type="text" name="name" id="input">
-    Email: <input type="email" name="username" id="input">
-    Password: <input type="password" name="password" id="input">
-    <input type="submit" name="submit" id="submit">
+    <input type="text" name="user[name]" placeholder="name">
+    <input type="email" name="user[email]" placeholder="email">
+    <input type="password" name="user[password]" placeholder="password">
+    
+    <input type="submit" name="Sign Up!">
 </form>
 
 <a href="/">home</a>
