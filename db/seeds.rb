@@ -13,8 +13,17 @@ survey.save
 question = Question.create(question: "Do you love or hate Subway?")
 survey.questions << question
 
-choice1 = Choice.create(choice: "I love it!!!", question_id: question.id)
-choice2 = Choice.create(choice: "I hate it!!!", question_id: question.id)
+Choice.create(choice: "I love it!!!", question_id: question.id)
+Choice.create(choice: "I hate it!!!", question_id: question.id)
+Choice.create(choice: "It's ok when i'm drunk", question_id: question.id)
+
+question = Question.create(question: "Whatis the best restaurant in River North?")
+survey.questions << question
+
+Choice.create(choice: "Subway", question_id: question.id)
+Choice.create(choice: "Chipotle", question_id: question.id)
+Choice.create(choice: "Portillo's", question_id: question.id)
+Choice.create(choice: "7-11", question_id: question.id)
 
 User.all.each do |user|
   surveys = Survey.all
