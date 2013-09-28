@@ -12,12 +12,12 @@ end
 
 
 get "/create/survey" do 
-
+  @user = User.find(session[:user_id])
   erb :create_survey
 end
 
-post '/create/survey/1' do 
-
+post '/create/survey' do 
+  
 
   redirect to '/surveys'
 end
