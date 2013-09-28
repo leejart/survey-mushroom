@@ -37,11 +37,6 @@ User.all.each do |user|
   end
 end
 
-User.create(name: 'Scott', email)
-
-Scottsurvey = Survey.new(title: "Word that looks the worst in the console", description: "What is the strangest console word?", user_id: 11)
-survey.user_id = User.last.id
-survey.save
 
 question = Question.create(question: "strangest word in console?")
 survey.questions << question

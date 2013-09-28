@@ -8,14 +8,18 @@ get '/profile' do
   erb :profile
 end
 
+get '/logout' do
+  session.clear
+  
+  redirect to '/'
+end
+
 get '/signup' do
 
   erb :signup
 end
 
-get '/logout' do
-  session.clear
-end
+
 
 
 # POST ))))))))))))))))))))))))))))))))))))))))))
