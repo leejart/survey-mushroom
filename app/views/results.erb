@@ -1,0 +1,11 @@
+<h1><%= @submission.survey.title %> Survey Results</h1>
+
+
+<ul>
+  <% @submission.responses.each do |response| %>
+  <li><%= response.question.question %> <%= response.choice.choice%></li>
+  <% end %>
+</ul>
+
+<a href="/logout">Logout</a>
+<a href="/surveys">Home</a>

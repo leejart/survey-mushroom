@@ -1,7 +1,7 @@
 <h1>All Surveys</h1>
-<a href="/profile/<%= @user.id %>">profile</a>
+<a href="/profile">profile</a>
 <ul><% @surveys.each do |survey| %>
-<li><a href="/survey/<%= survey.id %>"><%=survey.title %></a><%= survey.user.name %> </li>
+<li><a href="/survey/<%= survey.id %>"><%=survey.title %></a> <%= survey.user.name %> </li>
 <% end %>
 
 
@@ -9,3 +9,4 @@
 </ul>
 
 <a href="/surveys">home</a>
+<a href="/logout">Logout</a>
