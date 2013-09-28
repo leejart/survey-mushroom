@@ -14,9 +14,9 @@ get '/survey/:survey_id/edit' do
   erb :survey_edit
 end
 
-get '/survey/new' do
-
-
+get "/create/survey" do 
+  @user = User.find(session[:user_id])
+  erb :create_survey
 end
 
 get '/survey/:survey_id/:question_id/newchoice' do
@@ -28,7 +28,6 @@ get '/survey/:survey_id/newquestion' do
   Question.create(survey_id: params[:survey_id])
   redirect to "/survey/#{params[:survey_id]}/edit"
 end
-
 
 post '/survey/:survey_id/response/' do
   #puts params.inspect
