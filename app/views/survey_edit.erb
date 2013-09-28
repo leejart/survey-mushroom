@@ -4,8 +4,8 @@
 
   <div class="survey-info">
     <form action="/survey/<%= @survey.id %>/edit" method="POST">
-      <input type="text" name="survey[title]" value="<%= @survey.try(:title) %>">
-      <textarea name="survey[description]" id="" cols="30" rows="10"><%= @survey.try(:description) %></textarea>
+      <input type="text" name="survey[title]" value="<%= @survey.try(:title) %>" placeholder="Title:">
+      <textarea name="survey[description]" id="" cols="30" rows="10" placeholder="Description:"><%= @survey.try(:description) %></textarea>
       <input class="button" type="submit" value="Save survey">
     </form>
   </div>
@@ -29,6 +29,7 @@
     <% end %>
 
   <a href="/survey/<%= @survey.id %>/newquestion">Add question</a>
+  <a href="/surveys">Commit Survey</a>
   </div>
 
 </div>

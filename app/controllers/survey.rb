@@ -4,19 +4,29 @@ get '/surveys' do
   erb :surveys
 end
 
+get '/survey/new' do
+  @survey = Survey.create
+  @user = User.find(session[:user_id])
+  @user.surveys << @survey
+
+  erb :survey_edit
+end
+
 get '/survey/:survey_id' do
   @survey = Survey.find(params[:survey_id])
   erb :survey
 end
 
+
 get '/survey/:survey_id/edit' do
   @survey = Survey.find(params[:survey_id])
+  
   erb :survey_edit
 end
 
-get '/survey/new' do
-
-
+get "/create/survey" do 
+  @user = User.find(session[:user_id])
+  erb :create_survey
 end
 
 get '/survey/:survey_id/:question_id/newchoice' do
@@ -28,7 +38,6 @@ get '/survey/:survey_id/newquestion' do
   Question.create(survey_id: params[:survey_id])
   redirect to "/survey/#{params[:survey_id]}/edit"
 end
-
 
 post '/survey/:survey_id/response/' do
   #puts params.inspect
@@ -50,6 +59,8 @@ post '/survey/:survey_id/:question_id/save' do
   p "\n\n"
   p params
   p "\n\n"
+
+
   question = Question.find(params[:question_id])
 
   question.update(params[:question])

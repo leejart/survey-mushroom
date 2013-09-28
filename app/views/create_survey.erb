@@ -1,4 +1,4 @@
-  <form action="/create/survey/1" method="POST">
+  <form action="/create/survey" method="POST">
     Title <input type="text" name="title" id="input">
     Description: <input type="text" name="description" id="input">
     Questions: <input type="text" name="question" id="input">
@@ -13,4 +13,5 @@
   </form>
 
 
-<a href="/">home</a>
+<a href="/surveys">home</a>
+<a href="/profile/<%= @user.id %>">Profile</a>
