@@ -21,11 +21,11 @@ end
 
 get '/survey/:survey_id/edit' do
   @survey = Survey.find(params[:survey_id])
-  
+
   erb :survey_edit
 end
 
-get "/create/survey" do 
+get "/create/survey" do
   @user = User.find(session[:user_id])
   erb :create_survey
 end
@@ -35,9 +35,24 @@ get '/survey/:survey_id/:question_id/newchoice' do
   redirect to "/survey/#{params[:survey_id]}/edit"
 end
 
+get '/survey/:survey_id/:question_id/delete' do
+  question = Question.find(params[:question_id]).delete
+  if request.xhr?
+    { question_id: question.id }.to_json
+  else
+    redirect to "/survey/#{params[:survey_id]}/edit"
+  end
+end
+
 get '/survey/:survey_id/newquestion' do
-  Question.create(survey_id: params[:survey_id])
-  redirect to "/survey/#{params[:survey_id]}/edit"
+  question = Question.create(survey_id: params[:survey_id])
+  if request.xhr?
+    erb :_survey_edit_question, layout: false, locals: {question: question}
+  else
+    redirect to "/survey/#{params[:survey_id]}/edit"
+  end
+
+
 end
 
 post '/survey/:survey_id/response/' do
