@@ -15,7 +15,7 @@
     <% @survey.questions.each do |question| %>
       <div class="question">
         <form action="/survey/<%= @survey.id %>/<%= question.id %>/save" method="POST">
-          <textarea name="question[question]" id="" cols="30" rows="3"><%= question.try(:question) %></textarea><br>
+          <textarea name="question[question]" id="" ><%= question.try(:question) %></textarea><br>
 
           <% question.choices.each do |choice| %>
             <input type="text" name="choice[<%= choice.id %>]" value="<%= choice.try(:choice) %>"><br>
