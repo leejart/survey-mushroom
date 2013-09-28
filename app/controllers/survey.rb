@@ -13,6 +13,13 @@ get '/survey/new' do
   erb :survey_edit
 end
 
+get '/results/:id' do
+  @submission = Submission.find(params[:id])
+  @responses = Response.all
+  @choice = Choice.all
+  erb :results
+end
+
 get '/survey/:survey_id' do
   @survey = Survey.find(params[:survey_id])
   erb :survey
@@ -55,13 +62,18 @@ get '/survey/:survey_id/newquestion' do
 
 end
 
+
 post '/survey/:survey_id/response/' do
-  #puts params.inspect
+  puts "-----------------------------"
+  puts params.inspect
   @submission = Submission.create(survey_id: params[:survey_id], user_id: 1)
+  puts params[:answers]
   params[:answers].each do |r|
-    @submission.responses << Response.create(choice_id: r.last)
+    @submission.responses << Response.create(question_id: r.first, choice_id: r.last)
+  @submission.save
   end
-  redirect to '/surveys'
+  redirect to "/results/#{@submission.id}"
+
 end
 
 post '/survey/:survey_id/edit' do

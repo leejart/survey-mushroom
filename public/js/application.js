@@ -14,6 +14,7 @@ $(document).ready(function() {
     var email_regex = new RegExp(".");
     var password_regex = new RegExp(".");
     console.log(input[0].value);
+
     if (input[0].value.length < 5){
       alert("Name has to be five letters!");
     }
