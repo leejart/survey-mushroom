@@ -1,8 +1,14 @@
 class User < ActiveRecord::Base
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :email, uniqueness: :true, on: :create
+   
+
   has_many :surveys
   has_many :submissions
   has_many :questions, through: :surveys
   has_many :responses, through: :submissions
+
 
   include BCrypt
 
