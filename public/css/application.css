@@ -13,3 +13,28 @@ th {
   height: 50px;
   background-color: purple;
 }
+
+.survey-info {
+  position: relative;
+  width: 100%;
+  background-color: #999;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.survey-questions .question {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  background-color: #ccc;
+  box-sizing: border-box;
+  margin-top: 20px;
+}
+
+.edit-survey input.button {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
+
