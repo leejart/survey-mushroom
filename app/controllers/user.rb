@@ -1,7 +1,7 @@
 # GET )))))))))))))))))))))))))))))))))))))))))))
 
-get '/profile/:user_id' do
-  @user = User.find(params[:user_id])
+get '/profile' do
+  @user = User.find(session[:user_id])
   
 
 
@@ -27,16 +27,30 @@ post '/login' do
     redirect to "/?error=loginerror"
   elsif @user.password == params[:user][:password]
     session[:user_id] = @user.id
-    redirect to "/profile/#{@user.id}"
+    redirect to "/profile"
   else
     redirect to "/?error=loginerror"
   end
 end
 
 post '/signup' do
-    @user = User.new(params[:user])
+  puts params.inspect
+
+  if params[:user][:name] == nil
+    redirect to "/signup?error=signuperror"
+  elsif params[:user][:password] == nil
+    redirect to "/signup?error=signuperror"
+  else
+    @user = User.new(name: params[:user][:name], email: params[:user][:email])
     @user.password = params[:user][:password]
     @user.save!
+    session[:user_id] = @user.id
+ 
+    if request.xhr?
+      'true'
+     else
+      redirect to "/profile"
+    end
+  end
 
-  redirect to "/profile/#{@user.id}"
 end
