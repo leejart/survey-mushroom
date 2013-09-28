@@ -13,22 +13,10 @@
   <div class="survey-questions">
 
     <% @survey.questions.each do |question| %>
-      <div class="question">
-        <form action="/survey/<%= @survey.id %>/<%= question.id %>/save" method="POST">
-          <textarea name="question[question]" id="" ><%= question.try(:question) %></textarea><br>
-
-          <% question.choices.each do |choice| %>
-            <input type="text" name="choice[<%= choice.id %>]" value="<%= choice.try(:choice) %>"><br>
-          <% end %>
-
-          <input class="button" type="submit" value="Save question">
-          <a href="/survey/<%= @survey.id %>/<%= question.id %>/newchoice">Add choice</a>
-    </form>
-  </div>
-
+      <%= erb :_survey_edit_question, layout: false, locals: {question: question} %>
     <% end %>
 
-  <a href="/survey/<%= @survey.id %>/newquestion">Add question</a>
+  <a id="add-question" href="/survey/<%= @survey.id %>/newquestion">Add question</a>
   <a href="/surveys">Commit Survey</a>
   </div>
 

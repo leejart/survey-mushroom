@@ -1,0 +1,15 @@
+<div class="question" id="<%= question.id %>">
+        <form action="/survey/<%= question.survey_id %>/<%= question.id %>/save" method="POST">
+          <textarea name="question[question]" id="" ><%= question.try(:question) %></textarea><br>
+
+          <% question.choices.each do |choice| %>
+          <div class="choice">
+            <input type="text" name="choice[<%= choice.id %>]" value="<%= choice.try(:choice) %>">
+            </div>
+          <% end %>
+
+          <input class="button" type="submit" value="Save question">
+          <a href="/survey/<%= question.survey_id %>/<%= question.id %>/newchoice">Add choice</a>
+          <a class="delete-question" href="/survey/<%= question.survey_id %>/<%= question.id %>/delete">Delete question</a>
+    </form>
+  </div>
