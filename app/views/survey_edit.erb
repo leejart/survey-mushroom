@@ -1,0 +1,55 @@
+<h1>New/Edit survey</h1>
+
+<div class="edit-survey">
+
+  <div class="survey-info">
+    <form action="/survey/<%= @survey.id %>/edit" method="POST">
+      <input type="text" name="survey[title]" value="<%= @survey.try(:title) %>">
+      <textarea name="survey[description]" id="" cols="30" rows="10"><%= @survey.try(:description) %></textarea>
+      <input class="button" type="submit" value="Save survey">
+    </form>
+  </div>
+
+  <div class="survey-questions">
+
+    <% @survey.questions.each do |question| %>
+      <div class="question">
+        <form action="/survey/<%= @survey.id %>/<%= question.id %>/save" method="POST">
+          <textarea name="question[question]" id="" cols="30" rows="3"><%= question.try(:question) %></textarea><br>
+
+          <% question.choices.each do |choice| %>
+            <input type="text" name="choice[<%= choice.id %>]" value="<%= choice.try(:choice) %>"><br>
+          <% end %>
+
+          <input class="button" type="submit" value="Save question">
+          <a href="/survey/<%= @survey.id %>/<%= question.id %>/newchoice">Add choice</a>
+    </form>
+  </div>
+
+    <% end %>
+
+  <a href="/survey/<%= @survey.id %>/newquestion">Add question</a>
+  </div>
+
+</div>
+
+
+
+<!--
+  <form action="/create/survey/1" method="POST">
+    Title <input type="text" name="title" id="input">
+    Description: <input type="text" name="description" id="input">
+    Questions: <input type="text" name="question" id="input">
+
+<h1>create choices</h1>
+
+    Choice 1: <input type="text" name="choice1" id="input">
+    Choice 2: <input type="text" name="choice2" id="input">
+    Choice 3: <input type="text" name="choice3" id="input">
+    Choice 4: <input type="text" name="choice3" id="input">
+    <input type="submit" name="submit" id="submit">
+  </form>
+
+
+<a href="/">home</a>
+ -->
