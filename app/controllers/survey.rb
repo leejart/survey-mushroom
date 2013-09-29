@@ -5,6 +5,13 @@ get '/surveys' do
   erb :surveys
 end
 
+get '/charts/:survey_id' do
+  @submission = Submission.where(survey_id: params[:survey_id])
+  @survey = Survey.find(params[:survey_id])
+
+  erb :charts
+end
+
 get '/survey/new' do
   @survey = Survey.create
   @user = User.find(session[:user_id])
@@ -24,6 +31,7 @@ get '/survey/:survey_id' do
   @survey = Survey.find(params[:survey_id])
   erb :survey
 end
+
 get '/survey/stats/:survey_id' do
   @submission = Submission.where(survey_id: params[:survey_id])
   @survey = Survey.find(params[:survey_id])
@@ -38,6 +46,26 @@ get '/survey/:survey_id/edit' do
 
   erb :survey_edit
 end
+
+get '/ajax/chart/:survey_id' do
+  if request.xhr?
+    survey = Survey.find(params[:survey_id])
+    choices = []
+    amount = []
+    survey.choices.each do |choice|
+      choices << choice.choice
+    end
+    survey.choices.each do |choice|
+
+    amount << choice.responses.count
+    end
+
+    { labels: choices, datasets: [data: amount]}.to_json
+  else
+    erb :charts
+  end
+end
+
 
 get '/ajax/survey/:survey_id/edit' do
   if request.xhr?
