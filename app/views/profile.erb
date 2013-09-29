@@ -1,13 +1,17 @@
-<h1> Welcome <%= @user.name.capitalize %>!</h1>
+<div class="main">
 
-<a href="/survey/new">Create Survey</a>
-<ul>
-<% @user.surveys.each do |survey| %>
-  <li><a href="/survey/<%= survey.id%>"><%=survey.title%></a></li>
-  <% end %>
+  <h1> Welcome <%= @user.name.capitalize %>!</h1>
 
-</ul>
+  <a href="/survey/new">Create Survey</a>
+  <ul>
+  <% @user.surveys.each do |survey| %>
+    <li><a href="/survey/<%= survey.id%>"><%=survey.title%></a></li>
+    <% end %>
 
-<a href="/surveys">home</a><br>
-<a href="/surveys">Take a Survey</a><br>
-<a href="/logout">Logout</a>
+  </ul>
+
+  <a href="/surveys">home</a><br>
+  <a href="/surveys">Take a Survey</a><br>
+  <a href="/logout">Logout</a>
+
+</div>

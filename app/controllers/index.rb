@@ -1,15 +1,13 @@
 get '/' do
-  # Look in app/views/index.erb
-  erb :index
+  if session?
+    erb :profile
+  else
+    erb :index
+  end
 end
 
 
 
-
-
-
-
-###--------------------POST
 
 
 
