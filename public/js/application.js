@@ -56,18 +56,17 @@ $(document).ready(function() {
   var add_question = function(event){
     event.preventDefault();
     var url = $(this).attr('href');
-    var last_div = ($(this).prev('div'));
+    console.log($(this));
+    var last_div = ($(this).closest("div"));
     $.get(url, function(response){
       var test222 = last_div.after(response).hide();
       test222.slideDown();
     });
   };
 
-
-
   $('.survey-questions').on('click', '.delete-question', on_delete_clicked );
-
   $('#add-question').on('click', add_question);
+  $('.add-choice').on('click', add_question);  
 
 $(".radio").on('click', function() { 
    if ($('.radio').is(':checked')){
