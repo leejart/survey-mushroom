@@ -24,6 +24,13 @@ get '/survey/:survey_id' do
   @survey = Survey.find(params[:survey_id])
   erb :survey
 end
+get '/survey/stats/:survey_id' do
+  @submission = Submission.where(survey_id: params[:survey_id])
+  @survey = Survey.find(params[:survey_id])
+
+  erb :survey_stats
+end
+
 
 
 get '/survey/:survey_id/edit' do
