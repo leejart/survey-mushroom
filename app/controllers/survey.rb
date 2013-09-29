@@ -32,6 +32,17 @@ get '/survey/:survey_id/edit' do
   erb :survey_edit
 end
 
+get '/ajax/survey/:survey_id/edit' do
+  if request.xhr?
+    puts "hlleeeee"
+    @survey = Survey.find(params[:survey_id])
+    @survey.to_json
+  else
+    redirect to "/survey/#{params[:survey_id]}/edit"
+  end
+end
+
+
 get "/create/survey" do
   @user = User.find(session[:user_id])
   erb :create_survey
