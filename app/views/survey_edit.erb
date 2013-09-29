@@ -1,48 +1,31 @@
+<script src="/js/survey_edit.js"></script>
+
 <div class="main">
 
-<h1>New/Edit survey</h1>
+  <h1>New/Edit survey</h1>
 
-<div class="edit-survey">
+  <div class="edit-survey">
+    <div class="survey-info">
+      <noscript>
+        <form action="/survey/<%= @survey.id %>/edit" method="POST">
+          <input type="text" name="survey[title]" value="<%= @survey.try(:title) %>" placeholder="Title:">
+          <textarea name="survey[description]" id="" cols="30" rows="10" placeholder="Description:"><%= @survey.try(:description) %></textarea>
+          <input class="button" type="submit" value="Save survey">
+        </form>
+      </noscript>
+    </div>
 
-  <div class="survey-info">
-    <form action="/survey/<%= @survey.id %>/edit" method="POST">
-      <input type="text" name="survey[title]" value="<%= @survey.try(:title) %>" placeholder="Title:">
-      <textarea name="survey[description]" id="" cols="30" rows="10" placeholder="Description:"><%= @survey.try(:description) %></textarea>
-      <input class="button" type="submit" value="Save survey">
-    </form>
-  </div>
+    <div class="survey-questions">
+      <noscript>
+        <% @survey.questions.each do |question| %>
+          <%= erb :_survey_edit_question, layout: false, locals: {question: question} %>
+        <% end %>
 
-  <div class="survey-questions">
+        <a id="add-question" href="/survey/<%= @survey.id %>/newquestion">Add question</a>
+        <a href="/surveys">Commit Survey</a>
+      </noscript>
+    </div>
 
-    <% @survey.questions.each do |question| %>
-      <%= erb :_survey_edit_question, layout: false, locals: {question: question} %>
-    <% end %>
-
-  <a id="add-question" href="/survey/<%= @survey.id %>/newquestion">Add question</a>
-  <a href="/surveys">Commit Survey</a>
   </div>
 
 </div>
-
-</div>
-
-
-
-<!--
-  <form action="/create/survey/1" method="POST">
-    Title <input type="text" name="title" id="input">
-    Description: <input type="text" name="description" id="input">
-    Questions: <input type="text" name="question" id="input">
-
-<h1>create choices</h1>
-
-    Choice 1: <input type="text" name="choice1" id="input">
-    Choice 2: <input type="text" name="choice2" id="input">
-    Choice 3: <input type="text" name="choice3" id="input">
-    Choice 4: <input type="text" name="choice3" id="input">
-    <input type="submit" name="submit" id="submit">
-  </form>
-
-
-<a href="/">home</a>
- -->
