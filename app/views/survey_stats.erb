@@ -1,0 +1,25 @@
+<div class="main">
+
+<h1><%= @submission.first.survey.title %> Historical Survey Results</h1>
+
+<h6>Title:<%= @submission.first.survey.title %> </h6>
+<h6>Description:<%= @submission.first.survey.description %> </h6>
+
+<h6><%= @submission.length %> Times Taken</h6>
+
+<div>
+  <% @survey.choices.each do |choice| %>
+        
+    <%=choice.question.question %> <%= choice.choice %> - <%= choice.responses.count %> <br>
+      
+
+  <% end %>
+
+  <a href="/surveys">Home</a>
+  
+
+</div>
+
+
+
+
