@@ -47,18 +47,6 @@ get '/ajax/survey/:survey_id/edit' do
 
     { survey: survey, questions: questions, choices: choices}.to_json
 
-    # result[:questions].each do |q|
-    #   puts "\n\n"
-    #   puts q
-
-    #   # choices = Choice.where("question_id = #{q[:id]}")
-    #   # q[:choices] = []
-    #   # choices.each do |choice|
-    #   #   q[:choices] << choice
-    #   # end
-    # end
-    # p result.to_json
-    # # @survey.to_json
   else
     redirect to "/survey/#{params[:survey_id]}/edit"
   end
