@@ -1,6 +1,4 @@
-<h1>welcome to Survey Mushroom!</h1>
-
-<h4>Login</h4>
+<h1>Sign In</h1>
 
 <div class="error">
   <% if params[:error] == "loginerror" %>
@@ -11,10 +9,5 @@
 <form action="/login" method="POST">
     <input type="email" name="user[email]" placeholder="email"><br>
     <input type="password" name="user[password]" placeholder="password"><br>
-    <input type="submit" name="Log in" ><br>
+    <input type="submit" name="Log in" value="submit"><br>
 </form>
-
-<a href="/signup">Signup!</a>
-
-
-
