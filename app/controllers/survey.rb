@@ -38,8 +38,12 @@ get "/create/survey" do
 end
 
 get '/survey/:survey_id/:question_id/newchoice' do
-  Choice.create(question_id: params[:question_id])
-  redirect to "/survey/#{params[:survey_id]}/edit"
+  choice = Choice.create(question_id: params[:question_id])
+  if request.xhr?
+    erb :_survey_choices, layout: false, locals: {choice: choice}
+  else
+    redirect to "/survey/#{params[:survey_id]}/edit"
+  end
 end
 
 get '/survey/:survey_id/:question_id/delete' do
