@@ -1,4 +1,4 @@
-(function ($) {
+$(document).ready(function() {
 
 var hidden = document.getElementById('canttakethatback');
  var hidden2 = document.getElementsByClassName('dontworry');
