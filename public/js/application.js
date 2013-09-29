@@ -69,7 +69,22 @@ $(document).ready(function() {
 
   $('#add-question').on('click', add_question);
 
+$(".radio").on('click', function() { 
+   if ($('.radio').is(':checked')){
+    console.log(this);
+    console.log($(this));
+    $($(this).next("span")).css('color', 'green'); 
+  };
+
+
+
+  });
+
+
 });
+
+
+
 
   // $("#input").on('submit', function(event){
   //   event.preventDefault();
