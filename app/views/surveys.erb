@@ -1,12 +1,14 @@
-<h1>All Surveys</h1>
-<a href="/profile">profile</a>
-<ul><% @surveys.each do |survey| %>
-<li><a href="/survey/<%= survey.id %>"><%=survey.title %></a> <%= survey.user.name %> </li>
-<% end %>
+<div class="main">
+  <h1>All Surveys</h1>
+  <a href="/profile">profile</a>
+  <ul><% @surveys.each do |survey| %>
+  <li><a href="/survey/<%= survey.id %>"><%=survey.title %></a> <%= survey.user.name %> </li>
+  <% end %>
 
 
 
-</ul>
+  </ul>
 
-<a href="/surveys">home</a>
-<a href="/logout">Logout</a>
+  <a href="/surveys">home</a>
+  <a href="/logout">Logout</a>
+</div>
