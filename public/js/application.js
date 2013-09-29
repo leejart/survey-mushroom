@@ -68,26 +68,45 @@ $(document).ready(function() {
   $('#add-question').on('click', add_question);
   $('.add-choice').on('click', add_question);
 
-$(".radio").on('click', function() {
-   if ($('.radio').is(':checked')){
-    console.log(this);
-    console.log($(this));
-    $($(this).next("span")).css('color', 'green');
-  };
+// $(".radio").on('click', function() {
+  //  if ($('.radio').is(':checked')){
+  //   console.log(this);
+  //   console.log($(this));
+  //   $($(this).next("span")).css('color', 'green');
+
+  // };
+
+//   if (document.getElementById('radio').checked) {
+//     console.log(this);
+//     (this.next("span")).css('color', 'green');
+//   };
+
+//   $(function() {
+//     $( ".choices" ).sortable();
+//     $( ".choices" ).disableSelection();
+//   });
+
+
+// });
+ 
 
 
 
-  });
-
-  $(function() {
-    $( ".choices" ).sortable();
-    $( ".choices" ).disableSelection();
-  });
 
 
-});
+//     var val;
+//     var radios = document.elements[radio];
+    
+//     for (var i=0, len=radios.length; i<len; i++) {
+//         if ( radios[i].checked == true ) {
+//             val = radios[i].value;
+//             console.log("are we getting here?")
+//             break;
+//         }
+//     }
+//     return val;
 
-
+ });
 
 
   // $("#input").on('submit', function(event){

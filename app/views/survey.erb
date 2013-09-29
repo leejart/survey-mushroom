@@ -6,14 +6,18 @@
 <h2><%= @survey.description.capitalize%></h2>
 
 <h2>Questions</h2>
+<h1 id="canttakethatback" class="canttakethatback">can't take that back!</h1>
 
-<form action="/survey/<%=@survey.id%>/response/" method="POST">
+<form id="question" action="/survey/<%=@survey.id%>/response/" method="POST">
     <% @survey.questions.each do |question| %>
+    
     <h3><%= question.question%> </h3>
-
+    <div class='question_block'>
     <% question.choices.each do |choice| %>
-    <input class="radio" type="radio" name="answers[<%= question.id %>]" value="<%=choice.id%>"><span><%= choice.choice %></span><br>
+    <input id="radio" class="radio" type="radio" name="answers[<%= question.id %>]" value="<%=choice.id%>"><span><%= choice.choice %></span><br>
     <% end %>
+    </div>
+   <h3 id="dontworry" class="dontworry">don't worry! you're response was saved!</h3>  
     <% end %>
 
 

@@ -198,3 +198,16 @@ box-sizing: border-box;*/
   height: 25px;
   fill: #555;
 }
+
+
+
+
+.canttakethatback {
+  display: none;
+  color: rgba(17, 95, 104, 0.8);
+}
+
+.dontworry {
+  display: none;
+  color: rgba(17, 95, 104, 0.8);
+}
