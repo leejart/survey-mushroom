@@ -1,10 +1,28 @@
+.main {
+  width: 800px;
+  padding: 0px 20px 20px 20px;
+  margin: 100px auto;
+  box-shadow: inset 0 0 115px 24px rgba(0, 0, 0, 0.7);
+  border: 1px solid #888;
+  background-color: rgba(255, 255, 255, 0.64);
+}
+
+.main h1 {
+  font-weight: normal;
+}
+
 .mushroom-div {
   border: 1px solid rgba(0, 0, 0, 0.7);
   background-color: rgba(20, 0, 20, 0.7);
   box-shadow: 0 0 30px rgb(0, 0, 0);
 }
 
-.container {
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.login, .signup {
   margin: 100px auto;
 /*  max-width: 95%;*/
   width: 600px;
@@ -18,13 +36,13 @@
   font-weight: lighter;
 }
 
-.container h1 {
+h1 {
   font-family: Helvetica Neue;
   font-weight: 100;
   text-align: center;
 }
 
-.container input {
+.login input, .signup input {
   width: 100%;
 background-color: rgba(197, 197, 197, 0.36);
 height: 40px;
@@ -38,7 +56,7 @@ text-align: center;
 color: white;
 margin-bottom: 10px;
 }
-.container input[type=submit] {
+.login input[type=submit], .signup input[type=submit]{
 width: 20%;
 box-shadow: none;
 background-color: purple;
@@ -48,7 +66,7 @@ margin-top: 20px;
 border: none;
 }
 
-.container input[type=submit]:hover {
+.login input[type=submit]:hover, .signup input[type=submit]:hover {
   box-shadow: 0 0 15px 1px rgba(255, 255, 255, 0.5);
 }
 /*th {
@@ -95,9 +113,22 @@ body {
 .survey-info {
   position: relative;
   width: 100%;
-  background-color: #999;
+  border: 2px dotted #555;
+  border-radius: 20px;
   padding: 20px;
   box-sizing: border-box;
+}
+
+.survey-info input[type=text] {
+  background-color: rgba(0, 0, 0, 0.67);
+width: 100%;
+height: 40px;
+box-sizing: border-box;
+border: none;
+color: white;
+text-align: center;
+/*border-top-left-radius: 10px;
+border-top-right-radius: 10px;*/
 }
 
 .survey-questions .question {
@@ -130,4 +161,40 @@ textarea {
 
 textarea:focus {
   background-color: rgba(255,255,255,0.8)
+}
+
+/*
+margin-bottom: 10px;
+height: 30px;
+width: 100%;
+box-sizing: border-box;*/
+
+
+.survey-questions .question .choice {
+  width: 100%;
+  background-color: #aaa;
+  margin-bottom: 10px;
+  position: relative;
+  padding: 5px;
+  box-sizing: border-box;
+  border: 1px dashed #888;
+}
+
+.survey-questions .question .choice:hover {
+  box-shadow: 0 0 5px #444;
+  background-color: #999;
+}
+
+.survey-questions .question .choice .draggable {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 5px 5px 0 0;
+}
+
+
+.survey-questions .question .choice .draggable svg{
+  width: 25px;
+  height: 25px;
+  fill: #555;
 }

@@ -18,7 +18,7 @@ $(document).ready(function() {
     if (input[0].value.length < 5){
       alert("Name has to be five letters!");
     }
-    else if(!( password_regex.test(input[1].value))) 
+    else if(!( password_regex.test(input[1].value)))
     {
       alert("Invalid password: password must be between four and eight digits and include a number");
     }
@@ -26,7 +26,7 @@ $(document).ready(function() {
     {
       alert("that email is bogus");
     }
-    else 
+    else
     {
       $.post('/signup', input, function(response){
         console.log(response)
@@ -66,17 +66,22 @@ $(document).ready(function() {
 
   $('.survey-questions').on('click', '.delete-question', on_delete_clicked );
   $('#add-question').on('click', add_question);
-  $('.add-choice').on('click', add_question);  
+  $('.add-choice').on('click', add_question);
 
-$(".radio").on('click', function() { 
+$(".radio").on('click', function() {
    if ($('.radio').is(':checked')){
     console.log(this);
     console.log($(this));
-    $($(this).next("span")).css('color', 'green'); 
+    $($(this).next("span")).css('color', 'green');
   };
 
 
 
+  });
+
+  $(function() {
+    $( ".choices" ).sortable();
+    $( ".choices" ).disableSelection();
   });
 
 
@@ -90,7 +95,7 @@ $(".radio").on('click', function() {
   //   console.log("this is test 2");
   //   var data = $(this.password).serializeArray();
   //   console.log(data[0].value);
-    
+
   //   if (!( password_regex.test(input[0].value))) {
   //     alert("Invalid password: password must be between four and eight digits and include a number");
   //   }
@@ -100,10 +105,10 @@ $(".radio").on('click', function() {
   //   $("#input").on("submit", function(event){
   //   event.preventDefault();
   //   var data = $(this.email).serializeArray();
-    
-  //   if 
+
+  //   if
   //       alert("that email is bogus");
-    
+
   //   });
 
 
