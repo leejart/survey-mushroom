@@ -39,6 +39,32 @@ get '/survey/:survey_id/edit' do
   erb :survey_edit
 end
 
+get '/ajax/survey/:survey_id/edit' do
+  if request.xhr?
+    survey = Survey.find(params[:survey_id])
+    questions = survey.questions
+    choices = survey.choices
+
+    { survey: survey, questions: questions, choices: choices}.to_json
+
+    # result[:questions].each do |q|
+    #   puts "\n\n"
+    #   puts q
+
+    #   # choices = Choice.where("question_id = #{q[:id]}")
+    #   # q[:choices] = []
+    #   # choices.each do |choice|
+    #   #   q[:choices] << choice
+    #   # end
+    # end
+    # p result.to_json
+    # # @survey.to_json
+  else
+    redirect to "/survey/#{params[:survey_id]}/edit"
+  end
+end
+
+
 get "/create/survey" do
   @user = User.find(session[:user_id])
   erb :create_survey
