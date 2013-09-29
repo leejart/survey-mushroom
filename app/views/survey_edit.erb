@@ -7,12 +7,16 @@
   <div class="edit-survey">
     <div class="survey-info">
       <noscript>
+
         <form action="/survey/<%= @survey.id %>/edit" method="POST">
           <input type="text" name="survey[title]" value="<%= @survey.try(:title) %>" placeholder="Title:">
           <textarea name="survey[description]" id="" cols="30" rows="10" placeholder="Description:"><%= @survey.try(:description) %></textarea>
           <input class="button" type="submit" value="Save survey">
         </form>
+
       </noscript>
+
+
     </div>
 
     <div class="survey-questions">
@@ -29,3 +33,42 @@
   </div>
 
 </div>
+
+
+
+<script type="text/html" id="template">
+    <div data-content="author"></div>
+    <div data-content="date"></div>
+    <img data-src="authorPicture" data-alt="author"/>
+    <div data-content="post"></div>
+</script>
+
+<script type="text/template" id="form-template">
+  <form action="/survey/{id}/edit" method="POST">
+    <input type="text" name="survey[title]" value="{title}" placeholder="Title:">
+    <textarea name="survey[description]" id="" cols="30" rows="10" placeholder="Description:">{description}</textarea>
+    <input class="button" type="submit" value="Save survey">
+  </form>
+</script>
+
+<script type="text/template" id="question-template">
+  <div class="question" id="{id}">
+    <form action="/survey/{survey_id}/{id}/save" method="POST">
+      <textarea name="question[question]" id="">{question}</textarea><br>
+      <div class="choices" id="question{id}">
+      </div>
+      <input class="button" type="submit" value="Save question">
+      <a class="add-choice" href="/survey/{survey_id}/{id}/newchoice">Add choice</a>
+      <a class="delete-question" href="/survey/{survey_id}/{id}/delete">Delete question</a>
+    </form>
+  </div>
+</script>
+
+
+<script type="text/template" id="choice-template">
+  <div class="choice">
+    <div></div>
+    <input type="text" name="choice[{id}]" value="{choice}">
+    <div class="draggable"><%= icon('target') %></div>
+  </div>
+</script>
