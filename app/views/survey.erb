@@ -1,22 +1,26 @@
+<div class="main">
+
 <h1><%= @survey.title.capitalize%></h1>
 <h3>This survey is <%= @survey.questions.length %> questions long</h3>
 
 <h2><%= @survey.description.capitalize%></h2>
 
 <h2>Questions</h2>
-  
+
 <form action="/survey/<%=@survey.id%>/response/" method="POST">
     <% @survey.questions.each do |question| %>
     <h3><%= question.question%> </h3>
-  
-    <% question.choices.each do |choice| %> 
-    <input class="radio" type="radio" name="answers[<%= question.id %>]" value="<%=choice.id%>"><span><%= choice.choice %></span><br> 
+
+    <% question.choices.each do |choice| %>
+    <input class="radio" type="radio" name="answers[<%= question.id %>]" value="<%=choice.id%>"><span><%= choice.choice %></span><br>
     <% end %>
     <% end %>
-  
- 
-    
+
+
+
     <input type="submit" name="submit" id="submit">
 </form>
 
 <a href="/surveys">home</a>
+
+</div>

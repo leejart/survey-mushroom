@@ -1,14 +1,18 @@
-<div class="error">
-  <% if params[:error] == "signuperror" %>
-    <p>Wrong username or password</p>
-  <% end %>
+<div class="login">
+
+  <h1>Create new account</h1>
+
+  <div class="error">
+    <% if params[:error] == "signuperror" %>
+      <p>Wrong username or password</p>
+    <% end %>
+  </div>
+
+  <form id="input" action="/signup" method="POST">
+      <input id="name" type="text" name="user[name]" placeholder="name">
+      <input id="email" type="email" name="user[email]" placeholder="email">
+      <input id="password" type="password" name="user[password]" placeholder="password">
+      <input type="submit" name="Sign Up!">
+  </form>
+
 </div>
-
-<form id="input" action="/signup" method="POST">
-    <input id="name" type="text" name="user[name]" placeholder="name">
-    <input id="email" type="email" name="user[email]" placeholder="email">
-    <input id="password" type="password" name="user[password]" placeholder="password">
-    <input type="submit" name="Sign Up!">
-</form>
-
-<a href="/">home</a>
