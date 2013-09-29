@@ -2,10 +2,12 @@
 
   <h1> Welcome <%= @user.name.capitalize %>!</h1>
 
-  <a href="/survey/new">Create Survey</a>
+  <a href="/survey/new">Create Survey</a>  
+
   <ul>
   <% @user.surveys.each do |survey| %>
-    <li><a href="/survey/<%= survey.id%>"><%=survey.title%></a></li>
+    <li><a href="/survey/<%= survey.id%>"><%=survey.title%></a> <a href="/survey/stats/<%= survey.id %>">Survey Stats</a>
+</li>
     <% end %>
 
   </ul>
