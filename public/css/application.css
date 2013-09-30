@@ -36,11 +36,6 @@ a {
   font-weight: lighter;
 }
 
-h1 {
-  font-family: Helvetica Neue;
-  font-weight: 100;
-  text-align: center;
-}
 
 .login input, .signup input {
   width: 100%;
@@ -115,20 +110,49 @@ body {
   width: 100%;
   border: 2px dotted #555;
   border-radius: 20px;
-  padding: 20px;
+  padding: 15px;
   box-sizing: border-box;
+  background-color: rgba(0,0,0,0.4);
+}
+h1 {
+  margin: 20px 0 10px 0;
+  font-size: 2.4em;
+  font-family: "Helvetica Neue";
+  text-align: center;
+  font-weight: 300;
+}
+
+
+h2 {
+  color: black;
+  margin: 15px 0 20px 0;
+  font-size: 1.8em;
+  font-family: "Helvetica Neue";
+  text-align: center;
+  font-weight: 300;
+}
+
+.survey-info form {
+/*     box-shadow: 0 0 36px black;
+border-radius: 15px;*/
+
 }
 
 .survey-info input[type=text] {
   background-color: rgba(0, 0, 0, 0.67);
-width: 100%;
-height: 40px;
-box-sizing: border-box;
-border: none;
-color: white;
-text-align: center;
-/*border-top-left-radius: 10px;
-border-top-right-radius: 10px;*/
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+  border: none;
+  color: white;
+  text-align: center;
+  /*border-top-left-radius: 10px;
+  border-top-right-radius: 10px;*/
+  font-size: 1.3em;
+  font-family: "Helvetica Neue";
+  font-weight: lighter;
+border-top-left-radius: 15px;
+border-top-right-radius: 15px;
 }
 
 .survey-questions .question {
@@ -146,21 +170,34 @@ border-top-right-radius: 10px;*/
   bottom: 20px;
 }
 
-textarea[name=question] {
-    resize: none;
+.question textarea {
+  resize: none;
+  margin-bottom: 10px;
+  font-size: 1.3em;
+  border-radius: 10px;
+  background-color: rgba(255,255,255,0.5);
+  box-shadow: inset 0 0 20px #777;
 }
 
 textarea {
   width: 100%;
-  background-color: rgba(180, 180, 180, 0.4);
+  background-color: rgba(230, 230, 230, 0.6);
   border: none;
-  margin-bottom: 10px;
-  padding: 5px;
+  padding: 10px;
   box-sizing: border-box;
+  font-size: 1.2em;
+  resize: none;
 }
 
-textarea:focus {
-  background-color: rgba(255,255,255,0.8)
+.survey-info textarea {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+
+textarea:focus, input:focus {
+  background-color: rgba(255,255,255,0.8);
+  outline: 0;
 }
 
 /*
@@ -169,16 +206,49 @@ height: 30px;
 width: 100%;
 box-sizing: border-box;*/
 
+.survey-questions {
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+  border: 2px dotted #555;
+  border-radius: 20px;
+  padding: 15px;
+  box-sizing: border-box;
+  background-color: rgba(0,0,0,0.4);
+}
 
 .survey-questions .question .choice {
-  width: 100%;
+  width: 95%;
   background-color: #aaa;
   margin-bottom: 10px;
   position: relative;
-  padding: 5px;
+  height: 40px;
+/*  padding: 5px;*/
   box-sizing: border-box;
   border: 1px dashed #888;
+  float: left;
+  display: inline-block;
 }
+
+.survey-questions .question .choice .index-num {
+  position: absolute;
+  font-size: 1.4em;
+  margin: 5px 0 0 10px;
+}
+
+.survey-questions .question .choice input {
+  position: absolute;
+  left: 5px;
+  height: 80%;
+  width: 92%;
+  border-radius: 5px;
+  margin: 3px 0 0 0;
+  padding-left: 10px;
+  font-size: 1.3em;
+  background-color: rgba(255,255,255,0.7);
+  border: none;
+}
+
 
 .survey-questions .question .choice:hover {
   box-shadow: 0 0 5px #444;
@@ -199,8 +269,52 @@ box-sizing: border-box;*/
   fill: #555;
 }
 
+.survey-questions .question .add-delete {
+ position: relative;
+  width: 5%;
+  /*background-color: blue;*/
+  height: 40px;
+  float: right;
+  top: 0;
+  display: inline-block;
+}
 
+.survey-questions .question .add-delete svg {
+  width: 25px;
+  height: 25px;
+  fill: #555;
+  margin: 8px 0 0 8px;
+}
 
+.add-question {
+  width: 100%;
+  height: 30px;
+  display: inline-block;
+  padding: 5px;
+}
+
+.add-question a {
+  color: black;
+  font-size: 1.4em;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+.add-question a:last-child {
+  float: right;
+}
+
+.question:nth-of-type(1) {
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  margin-top: 0;
+}
+
+.question:last-of-type {
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
 
 .canttakethatback {
   display: none;
