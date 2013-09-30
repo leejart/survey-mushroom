@@ -66,7 +66,6 @@ get '/ajax/chart/:survey_id' do
   end
 end
 
-
 get '/ajax/survey/:survey_id/edit' do
   if request.xhr?
     survey = Survey.find(params[:survey_id])
